@@ -30,6 +30,10 @@ angular
         templateUrl: 'views/login.html',
         controller: 'LoginController'
       })
+      .when('/debate/:debateId', {
+        templateUrl: 'views/debate.html',
+        controller: 'DebateCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
