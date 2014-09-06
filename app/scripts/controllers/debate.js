@@ -11,6 +11,7 @@ angular.module('twagoraApp')
 			if (!data.title) {
 				$location.path('404');
 			}
+			$rootScope.$broadcast('debateLoaded');
 		});
 
 		var msgsSync = $firebase(debateRef.child('/messages'));
