@@ -16,15 +16,15 @@
 			</div>
 		</div>
 	</div>
-	<div class="newMsgHandler">
-		<div class="wrapper" ng-show="auth.user">
-			<div class="user">
-				<img ng-src="{{ user.thirdPartyUserData.profile_image_url }}">
-			</div>
-			<button class="button sendMsg" ng-click="sendMessage()">Répondre</button>
-			<div class="newMsgInputHandler" ng-model="newMessage" autofocus>
-				<textarea class="newMsg" ng-model="newMessage" autofocus></textarea>
-			</div>
+</div>
+<div class="newMsgHandler">
+	<div class="wrapper">
+		<div class="user">
+			<img ng-src="{{ user.thirdPartyUserData.profile_image_url }}">
+		</div>
+		<button class="button sendMsg" ng-click="sendMessage()">Répondre</button>
+		<div class="newMsgInputHandler" ng-model="newMessage" autofocus>
+			<textarea class="newMsg" ng-model="newMessage" autofocus></textarea>
 		</div>
 		<div ng-hide="auth.user">
 			<button class="button connect" ng-click="login()">Connectez vous</button> pour pouvoir participer

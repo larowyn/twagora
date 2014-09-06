@@ -16,7 +16,7 @@
 			</div>
 			<nav id="menu">
 				<button class="button connect" ng-click="auth.user && logout() || login()">
-					{{ auth.user && 'Deconnexion' || 'Connexion' }}
+					{{ auth.user && 'Déconnexion' || 'Connexion' }}
 					<img ng-src="{{ auth.user.thirdPartyUserData.profile_image_url }}" ng-show="auth.user">
 				</button>
 			</nav>
