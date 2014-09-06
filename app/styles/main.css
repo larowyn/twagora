@@ -108,11 +108,12 @@ a {
 }
 
 .sign {
-	padding: 10px 50px;
+	width: 200px;
+	text-align: center;
 }
 
 #debatePage {
-	height: 100%;
+	height: calc(100% - 130px);
 }
 
 .wrapper {
@@ -132,6 +133,7 @@ a {
 	background-color: #55acee;
 	min-height: 300px;
 	line-height: 300px;
+	overflow-y: scroll;
 }
 
 .section .cover {
