@@ -13,7 +13,8 @@ angular.module('twagoraApp')
 				body: $scope.newMessage,
 				displayName: $scope.user.displayName,
 				username: $scope.user.username,
-				user_id: $scope.user.id
+				user_id: $scope.user.id,
+				date: new Date()
 			});
 
 			$scope.newMessage = '';
@@ -45,7 +46,8 @@ angular.module('twagoraApp')
 				description: $scope.description,
 				username: $rootScope.auth.user.username,
 				displayName: $rootScope.auth.user.displayName,
-				user_id: $rootScope.auth.user.id
+				user_id: $rootScope.auth.user.id,
+				date: new Date()
 			}
 			if ($scope.tweet) {
 				obj.tweet_url = $scope.tweet;
