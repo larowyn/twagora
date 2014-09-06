@@ -1,79 +1,135 @@
-/* Space out content a bit */
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+html {
+	font-family: sans-serif;
+	font-size: 16.5%;
+}
+
 body {
-  padding-top: 20px;
-  padding-bottom: 20px;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	background: #fff;
+	font-size: 6em;
 }
 
-/* Everything but the jumbotron gets side spacing for mobile first views */
-.header,
-.marketing,
-.footer {
-  padding-left: 15px;
-  padding-right: 15px;
+a {
+	display: inline-block;
+	text-decoration: none;
 }
 
-/* Custom page header */
-.header {
-  border-bottom: 1px solid #e5e5e5;
-}
-/* Make the masthead heading the same height as the navigation */
-.header h3 {
-  margin-top: 0;
-  margin-bottom: 0;
-  line-height: 40px;
-  padding-bottom: 19px;
+.button {
+	color: #fff;
+	background: #55acee;
+	border-radius: 4px;
+	font-size: 6rem;
+	padding: 10px;
 }
 
-/* Custom page footer */
-.footer {
-  padding-top: 19px;
-  color: #777;
-  border-top: 1px solid #e5e5e5;
+.button.grey {
+	background-color: #292f33;
 }
 
-/* Customize container */
-@media (min-width: 768px) {
-  .container {
-    max-width: 730px;
-  }
-}
-.container-narrow > hr {
-  margin: 30px 0;
+.button:hover {
+	background: #66757f;
 }
 
-/* Main marketing message and sign up button */
-.jumbotron {
-  text-align: center;
-  border-bottom: 1px solid #e5e5e5;
-}
-.jumbotron .btn {
-  font-size: 21px;
-  padding: 14px 24px;
-}
-
-/* Supporting marketing content */
-.marketing {
-  margin: 40px 0;
-}
-.marketing p + h4 {
-  margin-top: 28px;
+#header {
+	height: 60px;
+	background: #fff;
+	font-size: 4rem;
+	box-shadow: 0 3px 20px rgba(0, 0, 0, 0.5);
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 2;
 }
 
-/* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
-  /* Remove the padding we set earlier */
-  .header,
-  .marketing,
-  .footer {
-    padding-left: 0;
-    padding-right: 0;
-  }
-  /* Space out the masthead */
-  .header {
-    margin-bottom: 30px;
-  }
-  /* Remove the bottom border on the jumbotron for visual effect */
-  .jumbotron {
-    border-bottom: 0;
-  }
+.logo {
+	font-size: 10rem;
+	font-weight: bold;
+	line-height: 60px;
+	float: left;
+}
+
+.textBorder {
+	color: #fff;
+	text-shadow: 1px 0 0 #292f33, -1px 0 0 #292f33, 0 1px 0 #292f33, 0 -1px 0 #292f33;
+}
+
+#menu {
+	float: right;
+	line-height: 60px;
+}
+
+#menu > * {
+	line-height: normal;
+	vertical-align: middle;
+	display: inline-block;
+}
+
+.blue {
+	color: #55acee;
+}
+
+.wrapper {
+	width: 800px;
+	margin: auto;
+}
+
+.clear:after {
+	content: "";
+	display: block;
+	width: 0;
+	height: 0;
+	clear: both;
+}
+
+.bodyContent {
+	margin-top: 60px;
+}
+
+#index {
+	background-color: #55acee;
+	height: 300px;
+	line-height: 300px;
+}
+
+#index .cover {
+	line-height: normal;
+	vertical-align: middle;
+	display: inline-block;
+}
+
+.slogan {
+	color: #fff;
+	margin-bottom: 5px;
+	font-weight: normal;
+}
+
+.onlineList {
+	display: none;
+}
+
+.debatPreview {
+	display: none;
+}
+
+#footer {
+	color: #66757f;
+	font-size: 0.9em;
+	padding-top: 10px;
+	box-shadow: 0 -3px 20px rgba(0, 0, 0, 0.5);
+}
+
+#footer:after {
+	content: "";
+	display: block;
+	height: 10px;
+	background: #fff;
+	position: relative;
+	top: 9px;
 }
