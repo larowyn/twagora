@@ -3,12 +3,16 @@
 		<div class="debateHandler">
 			<div class="debateDescHandler" ta-dropdown>
 				<div class="debateDesc">
-					<h2 class="h2Like">Titre du débat</h2>
+					<h2 class="h2Like">{{ debate.title }}</h2>
 					<div class="desc">
-						La description du débat<br>
-						sur plusieurs lignes<br>
-						sinon c'est pas drôle<br>
-						parce qu'on peux pas tester<br>
+						{{ debate.description }}
+						<div class="author">
+							Débat ouvert par {{ debate.displayName }} - 
+							<a href="{{ 'https://twitter.com/' + debate.username }}" target="_blank">
+								@{{ debate.username }}
+							</a>
+							le {{ debate.date | date:'dd/MM/yyyy' }} à {{ debate.date | date:'HH:mm' }}
+						</div>
 					</div>
 				</div>
 				<div class="debateDescToggle"></div>
@@ -20,10 +24,11 @@
 				<blockquote class="blockquote">
 					<p class="msg">{{ message.body }}<p>
 					<footer class="author">
-						{{ message.displayName }}
+						{{ message.displayName }} -
 						<a href="{{ 'https://twitter.com/' + message.username }}" target="_blank">
 							@{{ message.username }}
 						</a>
+						{{ message.date | date:'dd/MM/yyyy HH:mm:ss' }}
 					</footer>
 				</blockquote>
 			</div>
@@ -47,3 +52,8 @@
 		</div>
 	</div>
 </div>
+
+<!-- 
+						<a href="{{ 'https://twitter.com/' + message.username }}" target="_blank">
+							@{{ message.username }}
+						</a> -->

@@ -304,17 +304,18 @@ a {
 	float: right;
 }
 
-.msg {
-
-}
-
 .author {
 	margin-top: 3px;
 	font-size: 0.9em;
+	color: #8899a6;
 }
 
 .author a {
-	color: #8899a6;
+	color: #66757f;
+}
+
+.author a:hover {
+	text-decoration: underline;
 }
 
 .newMsgHandler {

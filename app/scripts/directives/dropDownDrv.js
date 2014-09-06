@@ -1,13 +1,13 @@
 'use strict';
 
 angular.module('twagoraApp')
-	.directive('taDropdown', function () {
+	.directive('taDropdown', function ($timeout) {
 		return ({
 			restrict: 'A',
 			link: function (scope, elem, attrs) {
 				var height = elem[0].offsetHeight;
 				var box = angular.element(elem.children('.debateDesc')[0]);
-				var button = angular.element(elem.children('.debateDescToggle'));
+				var button = angular.element(elem.children('.debateDescToggle')[0]);
 
 				function showABitElem() {
 					elem.css({
@@ -34,7 +34,16 @@ angular.module('twagoraApp')
 					button.off('click', hideElem).mouseenter(showABitElem).removeClass('debateDescToggleHide');
 				}
 
+				function debateLoaded() {
+					$timeout(function () {
+						height = elem[0].offsetHeight;
+						hideElem();
+					});
+				}
+
 				hideElem();
+
+				scope.$on('debateLoaded', debateLoaded);
 
 			}
 		});
