@@ -39,8 +39,14 @@ angular.module('twagoraApp')
 			$scope.newMessage = '';
 		};
 
+		var cla = '';
+		$scope.computeClass = function (prev, curr) {
+			if (prev && prev.user_id != curr.user_id)
+				cla = (cla == 'msgDebateHandlerReverse') ? '' : 'msgDebateHandlerReverse';
+			return (cla);
+		}
+
 		simpleLogin.getCurrentUser().then(function (user) {
-			console.log(user);
 			$scope.user = user;
 		});
 
