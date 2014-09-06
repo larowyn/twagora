@@ -11,7 +11,8 @@
 							<a href="{{ 'https://twitter.com/' + debate.username }}" target="_blank">
 								@{{ debate.username }}
 							</a>
-							le {{ debate.date | date:'dd/MM/yyyy' }} à {{ debate.date | date:'HH:mm' }}
+							le {{ debate.date | date:'dd/MM/yyyy' }}
+							à {{ debate.date | date:'HH:mm' }}
 						</div>
 					</div>
 				</div>
@@ -24,11 +25,12 @@
 				<blockquote class="blockquote">
 					<p class="msg">{{ message.body }}<p>
 					<footer class="author">
-						{{ message.displayName }} -
+						Par {{ message.displayName }} -
 						<a href="{{ 'https://twitter.com/' + message.username }}" target="_blank">
 							@{{ message.username }}
 						</a>
-						{{ message.date | date:'dd/MM/yyyy HH:mm:ss' }}
+						le {{ message.date | date:'dd/MM/yyyy' }}
+						à {{ message.date | date:'HH:mm:ss' }}
 					</footer>
 				</blockquote>
 			</div>
