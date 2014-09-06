@@ -11,7 +11,8 @@ angular.module('twagoraApp')
 
 			$scope.messages.$add({
 				body: $scope.newMessage,
-				from: $scope.user.username,
+				displayName: $scope.user.displayName,
+				username: $scope.user.username,
 				user_id: $scope.user.id
 			});
 
@@ -28,5 +29,34 @@ angular.module('twagoraApp')
 				$scope.err = err? err + '' : null;
 			});
 		};
+
+	})
+	.controller('CreateDebateCtrl', function ($rootScope, $scope, $routeParams, $firebase, FBURL, simpleLogin) {
+
+		var debatesSync = $firebase(new Firebase(FBURL + '/debates'));
+		var debates = debatesSync.$asArray();
+
+		$scope.createDebate = function() {
+			if ($scope.title.length == 0) return;
+			if ($scope.description.length == 0) return;
+
+			var obj = {
+				title: $scope.title,
+				description: $scope.description,
+				username: $rootScope.auth.user.username,
+				displayName: $rootScope.auth.user.displayName,
+				user_id: $rootScope.auth.user.id
+			}
+			if ($scope.tweet) {
+				obj.tweet_url = $scope.tweet;
+			}
+			debates.$add(obj);
+
+			$scope.title = '';
+			$scope.description = '';
+			$scope.tweet = '';
+		};
+
+
 
 	});

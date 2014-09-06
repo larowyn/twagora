@@ -20,8 +20,9 @@
 				<blockquote class="blockquote">
 					<p class="msg">{{ message.body }}<p>
 					<footer class="author">
-						<a href="{{ 'https://twitter.com/' + message.from }}" target="_blank">
-							@{{ message.from }}
+						{{ message.displayName }}
+						<a href="{{ 'https://twitter.com/' + message.username }}" target="_blank">
+							@{{ message.username }}
 						</a>
 					</footer>
 				</blockquote>

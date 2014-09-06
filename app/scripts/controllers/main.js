@@ -12,7 +12,6 @@ angular.module('twagoraApp')
 
 		var debatesSync = $firebase(new Firebase(FBURL + '/debates'));
 		$scope.debates = debatesSync.$asArray();
-		console.log($scope.debates);
 
 		$scope.login = function(service) {
 			simpleLogin.login(service, function(err) {
