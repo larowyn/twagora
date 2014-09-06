@@ -28,8 +28,9 @@
 				<textarea class="newMsg" ng-model="newMessage" autofocus></textarea>
 			</div>
 		</div>
-		<div ng-hide="auth.user">
-			<button class="button connect" ng-click="login()">Connectez vous</button> pour pouvoir participer
+		<div class="white" ng-hide="auth.user">
+			<button class="button connect" ng-click="login()">Connectez vous</button>
+			<span>pour participer au débat</span>
 		</div>
 	</div>
 </div>
