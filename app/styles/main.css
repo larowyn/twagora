@@ -178,7 +178,63 @@ a {
 
 .debateHandler {
 	line-height: normal;
-	padding-top: 20px;
+}
+
+.debateDesc {
+	background: #fff;
+	position: relative;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+	padding: 20px;
+}
+
+.debateDesc:after {
+	content: "";
+	display: block;
+	height: 5px;
+	width: 30px;
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	margin-left: -15px;
+	z-index: 2;
+	background: #fff;
+}
+
+.debateDescToggle {
+	border-radius: 0 0 4px 4px;
+	height: 15px;
+	width: 30px;
+	background: #fff;
+	position: relative;
+	margin: auto;
+	-webkit-transition: -webkit-transform ease .3s;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+	z-index: 1;
+}
+
+.debateDescToggle:hover {
+	-webkit-transform: translateY(10px);
+}
+
+.debateDescToggle:before,
+.debateDescToggle:after {
+	content: "";
+	display: block;
+	width: 10px;
+	height: 2px;
+	background: #66757f;
+	position: absolute;
+	top: 6px;
+}
+
+.debateDescToggle:before {
+	-webkit-transform: rotate(45deg);
+	left: 7px;
+}
+
+.debateDescToggle:after {
+	-webkit-transform: rotate(-45deg);
+	left: 13px;
 }
 
 .msgDebateHandler {

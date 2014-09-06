@@ -1,6 +1,18 @@
 <div class="section" id="debatePage">
 	<div class="wrapper">
 		<div class="debateHandler">
+			<div class="debateDescHandler" ta-dropdown>
+				<div class="debateDesc">
+					<h2>Titre du débat</h2>
+					<div>
+						La description du débat<br>
+						sur plusieurs lignes<br>
+						sinon c'est pas drôle<br>
+						parce qu'on peux pas tester<br>
+					</div>
+				</div>
+				<div class="debateDescToggle"></div>
+			</div>
 			<div class="msgDebateHandler clear" ng-repeat="message in messages" ng-class="($index % 2) && 'msgDebateHandlerReverse'">
 				<div class="user">
 					<img ng-src="{{ 'http://twitter.com/api/users/profile_image/' + message.user_id + '?size=normal' }}">
