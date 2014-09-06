@@ -16,7 +16,8 @@ angular.module('twagoraApp')
 		var msgsSync = $firebase(debateRef.child('/messages'));
 		$scope.messages = msgsSync.$asArray();
 
-		$scope.sendMessage = function() {
+		$scope.sendMessage = function($event) {
+			if ($event && !($event.which == 13)) return;
 			if ($scope.newMessage.length == 0) return;
 
 			$scope.messages.$add({
@@ -42,7 +43,7 @@ angular.module('twagoraApp')
 		};
 
 	})
-	.controller('CreateDebateCtrl', function ($rootScope, $scope, $routeParams, $firebase, FBURL, simpleLogin) {
+	.controller('CreateDebateCtrl', function ($rootScope, $scope, $routeParams, $firebase, $location, FBURL, simpleLogin) {
 
 		var debatesSync = $firebase(new Firebase(FBURL + '/debates'));
 		var debates = debatesSync.$asArray();
@@ -62,11 +63,9 @@ angular.module('twagoraApp')
 			if ($scope.tweet) {
 				obj.tweet_url = $scope.tweet;
 			}
-			debates.$add(obj);
-
-			$scope.title = '';
-			$scope.description = '';
-			$scope.tweet = '';
+			debates.$add(obj).then(function (ref) {
+				$location.path('debate/' + ref.name());
+			});
 		};
 
 

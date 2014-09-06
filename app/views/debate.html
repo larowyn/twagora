@@ -41,7 +41,7 @@
 			</div>
 			<button class="button sendMsg" ng-click="sendMessage()">Répondre</button>
 			<div class="newMsgInputHandler" ng-model="newMessage" autofocus>
-				<textarea class="newMsg" ng-model="newMessage" autofocus></textarea>
+				<textarea class="newMsg" ng-model="newMessage" ng-keypress="sendMessage($event)" autofocus></textarea>
 			</div>
 		</div>
 		<div class="white" ng-hide="auth.user">
