@@ -8,7 +8,11 @@
  * Controller of the twagoraApp
  */
 angular.module('twagoraApp')
-	.controller('MainCtrl', function ($scope, simpleLogin) {
+	.controller('MainCtrl', function ($scope, $firebase, FBURL, simpleLogin) {
+
+		var debatesSync = $firebase(new Firebase(FBURL + '/debates'));
+		$scope.debates = debatesSync.$asArray();
+		console.log($scope.debates);
 
 		$scope.login = function(service) {
 			simpleLogin.login(service, function(err) {
@@ -17,7 +21,7 @@ angular.module('twagoraApp')
 		};
 
 		simpleLogin.getCurrentUser().then(function (user) {
-			console.log(user);
+			//console.log(user);
 		});
 
 	});
