@@ -37,4 +37,9 @@ angular
       .otherwise({
         redirectTo: '/'
       });
-  });
+  })
+  .service('ParseService', [function() {
+    var app_id = "nyxALhhh9KSF7CrbV5GXkllWzCJ2Tzr6qaPNUgDd";
+    var js_key = "0FSd3rWYPvjU7IjBoqtybqcOkQd3l9IRIJGLfLvN";
+    Parse.initialize(app_id, js_key);
+  }]);
