@@ -15,9 +15,15 @@ body {
 	font-size: 6em;
 }
 
+button {
+	border: none;
+	cursor: pointer;
+}
+
 a {
 	display: inline-block;
 	text-decoration: none;
+	cursor: pointer;
 }
 
 .button {
@@ -92,13 +98,13 @@ a {
 	margin-top: 60px;
 }
 
-#index {
+.section {
 	background-color: #55acee;
-	height: 300px;
+	min-height: 300px;
 	line-height: 300px;
 }
 
-#index .cover {
+.section .cover {
 	line-height: normal;
 	vertical-align: middle;
 	display: inline-block;
@@ -132,4 +138,103 @@ a {
 	background: #fff;
 	position: relative;
 	top: 9px;
+}
+
+.debateHandler {
+	line-height: normal;
+	padding-top: 20px;
+}
+
+.msgDebateHandler {
+	margin-bottom: 10px;
+	font-size: 0;
+}
+
+.msgDebateHandler > * {
+	font-size: 6rem;
+	vertical-align: top;
+}
+
+.user {
+	position: relative;
+	overflow: hidden;
+	width: 50px;
+	float: left;
+}
+
+.msgDebateHandlerReverse .user {
+	float: right;
+}
+
+.user img {
+	width: 50px;
+	height: 50px;
+}
+
+.user:after {
+	content: "";
+	display: block;
+	width: 16px;
+	height: 16px;
+	background: #fff;
+	-webkit-transform: rotate(45deg);
+	position: absolute;
+	top: -8px;
+	right: -8px;
+}
+
+.msgDebateHandlerReverse .user:after {
+	right: auto;
+	left: -8px;
+}
+
+.blockquote {
+	background: #fff;
+	padding: 15px;
+	float: left;
+	min-width: calc(50% - 40px);
+	max-width: calc(100% - 50px);
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+.msgDebateHandlerReverse .blockquote {
+	float: right;
+}
+
+.msg {
+
+}
+
+.author {
+	color: #8899a6;
+}
+
+.newMsgHandler {
+	margin: 10px 0 0;
+	background: #292f33;
+}
+
+.newMsgHandler .wrapper {
+	min-height: 0;
+	line-height: normal;
+	padding: 30px 0;
+}
+
+.newMsgInputHandler {
+	margin-left: 50px;
+	margin-right: 105px;
+}
+
+.newMsg {
+	width: 100%;
+	height: 70px;
+	font-size: 6rem;
+	padding: 10px;
+	border: none;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+	resize: none;
+}
+
+.sendMsg {
+	float: right;
 }
