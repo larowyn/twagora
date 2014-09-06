@@ -14,7 +14,8 @@ angular.module('twagoraApp')
 
 			$scope.messages.$add({
 				body: $scope.newMessage,
-				from: $scope.user.username
+				from: $scope.user.username,
+				user_id: $scope.user.id
 			});
 
 			$scope.newMessage = '';

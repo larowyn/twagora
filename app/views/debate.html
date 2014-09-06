@@ -3,7 +3,7 @@
 		<div class="debateHandler">
 			<div class="msgDebateHandler clear" ng-repeat="message in messages" ng-class="($index % 2) && 'msgDebateHandlerReverse'">
 				<div class="user">
-					<img src="https://lh5.googleusercontent.com/-LHZ-_eEvhzQ/AAAAAAAAAAI/AAAAAAAAAAA/pofes4-IwdU/s32-c/photo.jpg">
+					<img ng-src="{{ 'http://twitter.com/api/users/profile_image/' + message.user_id + '?size=normal' }}">
 				</div>
 				<blockquote class="blockquote">
 					<p class="msg">{{ message.body }}<p>
