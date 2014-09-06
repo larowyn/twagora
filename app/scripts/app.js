@@ -34,6 +34,10 @@ angular
         templateUrl: 'views/debate.html',
         controller: 'DebateCtrl'
       })
+      .when('/create/debate', {
+        templateUrl: 'views/createDebate.html',
+        controller: 'CreateDebateCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
