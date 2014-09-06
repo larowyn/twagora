@@ -30,7 +30,6 @@ angular.module('angularfire.login', ['firebase', 'angularfire.firebase'])
       login: function(provider, callback) {
         assertAuth();
         auth.$login(provider, {rememberMe: true}).then(function(user) {
-			$rootScope.user = user;
           if( callback ) {
             //todo-bug https://github.com/firebase/angularFire/issues/199
             $timeout(function() {

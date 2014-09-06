@@ -1,19 +1,14 @@
-<blockquote>
-	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-	<footer>Someone famous in <cite title="Source Title">Source Title</cite></footer>
+<blockquote ng-repeat="message in messages" ng-class="($index % 2) && 'blockquote-reverse'">
+	<p>{{ message }}<p>
+	<footer>Someone</footer>
 </blockquote>
-<blockquote class="blockquote-reverse">
-	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-	<footer>Someone famous in <cite title="Source Title">Source Title</cite></footer>
-</blockquote>
+
 
 <div class="row">
 	<div class="col-md-11">
-		<textarea class="form-control" rows="3"></textarea>
+		<textarea class="form-control" rows="3"  ng-model="newMessage" autofocus></textarea>
 	</div>
 	<div class="col-md-1">
-		<img src="https://lh5.googleusercontent.com/-LHZ-_eEvhzQ/AAAAAAAAAAI/AAAAAAAAAAA/pofes4-IwdU/s32-c/photo.jpg" alt="..." class="img-circle pull-right" >
+		<img src="https://lh5.googleusercontent.com/-LHZ-_eEvhzQ/AAAAAAAAAAI/AAAAAAAAAAA/pofes4-IwdU/s32-c/photo.jpg" alt="..." class="img-circle pull-right" ng-click="sendMessage()">
 	</div>
 </div>
-(si l'user est pas connecté)
-<textarea class="form-control" rows="3" disabled></textarea>
