@@ -26,4 +26,10 @@ angular.module('twagoraApp')
 			$scope.user = user;
 		});
 
+		$scope.login = function () {
+			simpleLogin.login('twitter', function(err) {
+				$scope.err = err? err + '' : null;
+			});
+		};
+
 	});
