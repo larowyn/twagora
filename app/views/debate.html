@@ -1,6 +1,6 @@
 <blockquote ng-repeat="message in messages" ng-class="($index % 2) && 'blockquote-reverse'">
-	<p>{{ message }}<p>
-	<footer>Someone</footer>
+	<p>{{ message.body }}<p>
+	<footer>{{ message.from }}</footer>
 </blockquote>
 
 
