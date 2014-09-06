@@ -7,7 +7,7 @@
 				</div>
 				<blockquote class="blockquote">
 					<p class="msg">{{ message.body }}<p>
-					<footer class="author">{{ message.from }}</footer>
+					<footer class="author"><a href="{{ 'https://twitter.com/' + message.from }}" target="_blank">@{{ message.from }}</a></footer>
 				</blockquote>
 			</div>
 		</div>
