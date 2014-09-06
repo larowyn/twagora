@@ -15,7 +15,7 @@
 				<a href="#"><span class="blue">Tw</span><span class="textBorder">Agora</a>
 			</div>
 			<nav id="menu">
-				<a href="#" class="button" ng-click="auth.user && logout() || login()">{{ auth.user && 'Deconnexion' || 'Connexion' }}</a>
+				<button class="button" ng-click="auth.user && logout() || login()">{{ auth.user && 'Deconnexion' || 'Connexion' }}</button>
 				<img src="{{ auth.user.thirdPartyUserData.profile_image_url }}" ng-show="auth.user">
 			</nav>
 		</div>
