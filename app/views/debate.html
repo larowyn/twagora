@@ -1,4 +1,4 @@
-<div class="section">
+<div class="section" id="debatePage">
 	<div class="wrapper">
 		<div class="debateHandler">
 			<div class="msgDebateHandler clear" ng-repeat="message in messages" ng-class="($index % 2) && 'msgDebateHandlerReverse'">
@@ -7,7 +7,11 @@
 				</div>
 				<blockquote class="blockquote">
 					<p class="msg">{{ message.body }}<p>
-					<footer class="author"><a href="{{ 'https://twitter.com/' + message.from }}" target="_blank">@{{ message.from }}</a></footer>
+					<footer class="author">
+						<a href="{{ 'https://twitter.com/' + message.from }}" target="_blank">
+							@{{ message.from }}
+						</a>
+					</footer>
 				</blockquote>
 			</div>
 		</div>
@@ -24,4 +28,3 @@
 		</div>
 	</div>
 </div>
-<!-- -->
