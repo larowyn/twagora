@@ -15,7 +15,7 @@
 	<div class="newMsgHandler">
 		<div class="wrapper">
 			<div class="user">
-				<img src="https://lh5.googleusercontent.com/-LHZ-_eEvhzQ/AAAAAAAAAAI/AAAAAAAAAAA/pofes4-IwdU/s32-c/photo.jpg">
+				<img ng-src="{{ user.thirdPartyUserData.profile_image_url }}">
 			</div>
 			<button class="button sendMsg" ng-click="sendMessage()">Répondre</button>
 			<div class="newMsgInputHandler" ng-model="newMessage" autofocus>
@@ -24,4 +24,4 @@
 		</div>
 	</div>
 </div>
-<!-- ng-src="user.thirdPartyUserData.profile_image_url" -->
+<!-- -->

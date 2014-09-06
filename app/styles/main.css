@@ -81,6 +81,21 @@ a {
 	color: #55acee;
 }
 
+#menu > .connect {
+	position: relative;
+	height: 38px;
+	padding: 0 10px;
+	line-height: 38px;
+	vertical-align: middle;
+}
+
+.connect img {
+	float: right;
+	height: 100%;
+	margin-right: -10px;
+	margin-left: 10px;
+}
+
 .wrapper {
 	width: 800px;
 	margin: auto;
