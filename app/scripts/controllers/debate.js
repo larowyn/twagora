@@ -1,9 +1,19 @@
 'use strict';
 
 angular.module('twagoraApp')
-	.controller('DebateCtrl', function ($rootScope, $scope, $routeParams, $firebase, FBURL, simpleLogin) {
+	.controller('DebateCtrl', function ($rootScope, $scope, $routeParams, $firebase, $location, FBURL, simpleLogin) {
 
-		var msgsSync = $firebase(new Firebase(FBURL + '/debates/' + $routeParams.debateId + '/messages'));
+		var debateRef = new Firebase(FBURL + '/debates/' + $routeParams.debateId);
+		var debateSync = $firebase(debateRef);
+		$scope.debate = debateSync.$asObject();
+
+		$scope.debate.$loaded().then(function (data) {
+			if (!data.title) {
+				$location.path('404');
+			}
+		});
+
+		var msgsSync = $firebase(debateRef.child('/messages'));
 		$scope.messages = msgsSync.$asArray();
 
 		$scope.sendMessage = function() {
@@ -14,7 +24,7 @@ angular.module('twagoraApp')
 				displayName: $scope.user.displayName,
 				username: $scope.user.username,
 				user_id: $scope.user.id,
-				date: new Date()
+				date: new Date().getTime()
 			});
 
 			$scope.newMessage = '';
@@ -47,7 +57,7 @@ angular.module('twagoraApp')
 				username: $rootScope.auth.user.username,
 				displayName: $rootScope.auth.user.displayName,
 				user_id: $rootScope.auth.user.id,
-				date: new Date()
+				date: new Date().getTime()
 			}
 			if ($scope.tweet) {
 				obj.tweet_url = $scope.tweet;
