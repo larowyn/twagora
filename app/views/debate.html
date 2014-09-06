@@ -23,7 +23,7 @@
 					<img ng-src="{{ 'http://twitter.com/api/users/profile_image/' + message.user_id + '?size=normal' }}">
 				</div>
 				<blockquote class="blockquote">
-					<p class="msg">{{ message.body }}<p>
+					<p class="msg" ng-bind-html="message.body">{{ message.body }}<p>
 					<footer class="author">
 						Par {{ message.displayName }} -
 						<a href="{{ 'https://twitter.com/' + message.username }}" target="_blank">
@@ -54,8 +54,3 @@
 		</div>
 	</div>
 </div>
-
-<!-- 
-						<a href="{{ 'https://twitter.com/' + message.username }}" target="_blank">
-							@{{ message.username }}
-						</a> -->

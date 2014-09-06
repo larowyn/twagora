@@ -697,11 +697,11 @@ module.exports = function (grunt) {
       return grunt.task.run(['build', 'connect:dist:keepalive']);
     }
 
-    //customWatchTasks.push('replace:dev');
+    customWatchTasks.push('replace:dev');
 
     grunt.task.run([
       'clean:server',
-      //'replace:dev',
+      'replace:dev',
       //'concurrent:server',
       //'autoprefixer',
       'connect:livereload',

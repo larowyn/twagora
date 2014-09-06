@@ -1,0 +1,13 @@
+{
+  "name": "twagora",
+  "version": "0.0.0",
+  "dependencies": {
+    "angular-resource": "1.2.16",
+    "angular-animate": "1.2.16",
+    "angular-route": "1.2.16",
+    "firebase": "~1.0.2",
+    "angularfire": "~0.8.0",
+    "firebase-simple-login": "~1.0.2"
+  },
+  "appPath": "app"
+}

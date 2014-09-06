@@ -7,6 +7,8 @@ angular.module('twagoraApp')
 		var debateSync = $firebase(debateRef);
 		$scope.debate = debateSync.$asObject();
 
+		$scope.newMessage = '';
+
 		$scope.debate.$loaded().then(function (data) {
 			if (!data.title) {
 				$location.path('404');
@@ -18,9 +20,14 @@ angular.module('twagoraApp')
 		$scope.messages = msgsSync.$asArray();
 
 		$scope.sendMessage = function($event) {
-			if ($event && !($event.which == 13)) return;
+			if ($event && ($event.which != 13 || $event.shiftKey)) return;
 			if ($scope.newMessage.length == 0) return;
+			$event.preventDefault();
 
+			console.log($scope.newMessage);
+			$scope.newMessage = $scope.newMessage.split('\n');
+			$scope.newMessage = $scope.newMessage.join('<br>');
+			console.log($scope.newMessage);
 			$scope.messages.$add({
 				body: $scope.newMessage,
 				displayName: $scope.user.displayName,
