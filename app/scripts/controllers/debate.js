@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('twagoraApp')
-	.controller('DebateCtrl', function ($rootScope, $scope, $routeParams, $firebase, FBURL) {
+	.controller('DebateCtrl', function ($rootScope, $scope, $routeParams, $firebase, FBURL, simpleLogin) {
 
 		var msgsSync = $firebase(new Firebase(FBURL + '/debates/' + $routeParams.debateId + '/messages'));
 		console.log(msgsSync);
@@ -14,10 +14,15 @@ angular.module('twagoraApp')
 
 			$scope.messages.$add({
 				body: $scope.newMessage,
-				from: "anonymous"
+				from: $scope.user.username
 			});
 
 			$scope.newMessage = '';
 		};
+
+		simpleLogin.getCurrentUser().then(function (user) {
+			console.log(user);
+			$scope.user = user;
+		});
 
 	});

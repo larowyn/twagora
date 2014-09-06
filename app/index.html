@@ -9,13 +9,14 @@
 </head>
 <body>
 
-	<header id="header">
+	<header id="header" ng-controller="HeaderCtrl">
 		<div class="wrapper clear">
 			<div class="logo">
-				<span class="blue">Tw</span><span class="textBorder">Agora
+				<a href="#"><span class="blue">Tw</span><span class="textBorder">Agora</a>
 			</div>
 			<nav id="menu">
-				<a href="#" class="button">Connexion</a>
+				<a href="#" class="button" ng-click="auth.user && logout() || login()">{{ auth.user && 'Deconnexion' || 'Connexion' }}</a>
+				<img src="{{ auth.user.thirdPartyUserData.profile_image_url }}" ng-show="auth.user">
 			</nav>
 		</div>
 	</header>
@@ -50,5 +51,6 @@
 	<script src="scripts/angularfire/routesecurity.js"></script>
 	<script src="scripts/controllers/login.js"></script>
 	<script src="scripts/controllers/debate.js"></script>
+	<script src="scripts/controllers/header.js"></script>
 </body>
 </html>

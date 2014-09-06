@@ -2,7 +2,8 @@
 	<div class="wrapper">
 		<div class="cover">
 			<h1 class="slogan">Débattez. Unleash the hounds !</h1>
-			<a href="#" class="button grey">Je m'inscris</a>
+			<a href="#" class="button grey" ng-click="login('twitter')" ng-hide="auth.user">Je m'inscris</a>
+			<a href="#/debate/test" class="button grey" ng-show="auth.user">Commencer un debat</a>
 		</div>
 		<ul class="onlineList">
 			<li class="people"></li>

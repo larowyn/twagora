@@ -8,10 +8,16 @@
  * Controller of the twagoraApp
  */
 angular.module('twagoraApp')
-  .controller('MainCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+	.controller('MainCtrl', function ($scope, simpleLogin) {
+
+		$scope.login = function(service) {
+			simpleLogin.login(service, function(err) {
+				$scope.err = err? err + '' : null;
+			});
+		};
+
+		simpleLogin.getCurrentUser().then(function (user) {
+			console.log(user);
+		});
+
+	});
