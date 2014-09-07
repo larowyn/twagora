@@ -456,3 +456,58 @@ ul {
 .newMsgHandler .connect + span {
 	padding-left: 5px;
 }
+
+.addDebate {
+	position: relative;
+	padding: 15px 20px;
+	line-height: normal;
+	z-index: 2;
+	margin: 50px 0;
+	background: #fff;
+	width: 400px;
+	border-radius: 8px;
+	background: #f5f8fa;
+	box-shadow: 0 3px 8px rgba(0, 0, 0, 0.5);
+	font-size: 0;
+}
+
+.addDebate > * {
+	font-size: 6rem;
+}
+
+.addDebate label {
+	display: block;
+	margin-bottom: 5px;
+	color: #292f33;
+}
+
+.addDebate label:not(:first-child) {
+	margin-top: 20px;
+}
+
+.addDebate input {
+	width: 100%;
+	border: 2px solid #ccd6dd;
+	padding: 5px;
+}
+
+.addDebate input:focus {
+	outline: none;
+	border-color: #8899a6;
+}
+
+.addDebate textarea {
+	width: 100%;
+	height: 75px;
+	border: 2px solid #ccd6dd;
+	padding: 5px;
+}
+
+.addDebate textarea:focus {
+	outline: none;
+	border-color: #8899a6;
+}
+
+.addDebate button {
+	margin-top: 20px;
+}
