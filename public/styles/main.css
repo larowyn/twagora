@@ -333,13 +333,15 @@ ul {
 }
 
 .afterCover {
-	box-shadow: 0 5px 8px rgba(0, 0, 0, 0.5);
 	position: relative;
 	z-index: 1;
 }
 
 #footerTrick {
 	height: 140px;
+	box-shadow: 0 5px 8px rgba(0, 0, 0, 0.5) inset;
+	position: relative;
+	z-index: 3;
 }
 
 #footer {
