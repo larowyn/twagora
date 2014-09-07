@@ -14,8 +14,8 @@ body {
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	background: #fff;
 	font-size: 6em;
-	height: 100%;
-	padding-top: 60px;
+	min-height: 100%;
+	position: relative;
 }
 
 button {
@@ -37,6 +37,14 @@ ul {
 	list-style: none;
 }
 
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}
+
 .white {
 	color: #fff;
 }
@@ -55,6 +63,14 @@ ul {
 
 .button:hover {
 	background: #66757f;
+}
+
+.notIndexPage {
+	height: 100%;
+}
+
+#headerTrick {
+	height: 60px;
 }
 
 #header {
@@ -121,12 +137,36 @@ ul {
 }
 
 .bodyContent {
-	height: 100%;
+	min-height: 100%;
+}
+
+.notIndexPageBodyContent {
+	height: calc(100% - 60px);
+	min-height: 0;
 }
 
 .sign {
 	width: 200px;
 	text-align: center;
+}
+
+.welcomeMsg {
+	margin: 10px 0;
+	width: 380px;
+	text-align: justify;
+	float: left;
+}
+
+.welcomeMsg .debatePreviewDesc {
+	font-size: 0.9em;
+}
+
+.welcomeMsg a {
+	color: #292f33;
+}
+
+.welcomeMsg a:hover {
+	text-decoration: underline;
 }
 
 #debatePage {
@@ -193,6 +233,13 @@ ul {
 	background: #292f33;
 }
 
+.debatePreviewHandler {
+	float: right;
+	width: 400px;
+	position: relative;
+	margin-bottom: 25px;
+}
+
 .debatePreviewShadow {
 	position: absolute;
 	width: 100%;
@@ -227,7 +274,7 @@ ul {
 	position: relative;
 	float: right;
 	/*border: 4px solid #66757f;*/
-	padding: 15px 20px;
+	padding: 10px 10px;
 	line-height: normal;
 	z-index: 2;
 	margin-top: -100px;
@@ -237,8 +284,12 @@ ul {
 	background: #f5f8fa;
 }
 
-.debate {
-	padding-bottom: 15px;
+.debatePreview .title {
+	padding: 0 5px;
+}
+
+.debate:not(:last-child) {
+	padding-bottom: 10px;
 }
 
 .debate img {
@@ -252,7 +303,7 @@ ul {
 	width: 90%;
 	height: 1px;
 	background: #ccd6dd;
-	margin: 15px auto 0;
+	margin: 10px auto 0;
 }
 
 .debate:last-child:after {
@@ -266,24 +317,49 @@ ul {
 }
 
 .debateLst a {
-	color: #292f33;
 	font-weight: normal;
+	padding: 10px;
+	border-radius: 4px;
+	width: 100%;
+}
+
+.debateLst a:hover {
+	background: #ccd6dd;
+}
+
+.debateLstTitle {
+	color: #292f33;
+	margin-bottom: 3px;
+}
+
+.afterCover {
+	box-shadow: 0 5px 8px rgba(0, 0, 0, 0.5);
+	position: relative;
+	z-index: 1;
+}
+
+#footerTrick {
+	height: 140px;
 }
 
 #footer {
 	color: #66757f;
 	font-size: 0.9em;
 	padding-top: 10px;
-	/*box-shadow: 0 -3px 20px rgba(0, 0, 0, 0.5);*/
+	background: #292f33;
+	position: absolute;
+	width: 100%;
+	height: 140px;
+	bottom: 0;
+	color: #fff;
 }
 
-#footer:after {
-	content: "";
-	display: block;
-	height: 10px;
-	background: #fff;
-	position: relative;
-	top: 9px;
+#footer a {
+	color: #fff;
+}
+
+#footer a:hover {
+	text-decoration: underline;
 }
 
 .debateDescHandler {

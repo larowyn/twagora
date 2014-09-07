@@ -1,5 +1,5 @@
 <!doctype html>
-<html ng-app="twagoraApp" lang="FR-fr">
+<html ng-app="twagoraApp" lang="FR-fr" ng-class="{notIndexPage: path != '/'}">
 <head>
 	<meta charset="utf-8">
 	<title>TwAgora</title>
@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width">
 	<link rel="stylesheet" href="styles/main.css">
 </head>
-<body>
+<body ng-class="{notIndexPage: path != '/'}">
 
 	<header id="header" ng-controller="HeaderCtrl">
 		<div class="wrapper clear">
@@ -23,8 +23,9 @@
 			</nav>
 		</div>
 	</header>
+	<div id="headerTrick"></div>
 
-	<section class="bodyContent" ng-view>
+	<section class="bodyContent" ng-class="{notIndexPageBodyContent: path != '/'}" ng-view>
 	</section>
 
 	<script src="bower_components/jquery/dist/jquery.js"></script>

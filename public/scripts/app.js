@@ -42,8 +42,16 @@ angular
 			redirectTo: '/'
 		});
 })
-.service('ParseService', [function() {
+.run(function ($rootScope, $location) {
+	$rootScope.path = $location.path();
+	console.log($location.path());
+	$rootScope.$on('$routeChangeSuccess', function (next, current) {
+		console.log(next);
+		$rootScope.path = $location.path();
+	});
+})
+/*.service('ParseService', [function() {
 	var app_id = "nyxALhhh9KSF7CrbV5GXkllWzCJ2Tzr6qaPNUgDd";
 	var js_key = "0FSd3rWYPvjU7IjBoqtybqcOkQd3l9IRIJGLfLvN";
 	Parse.initialize(app_id, js_key);
-}]);
+}])*/;

@@ -10,21 +10,47 @@
 		</ul>
 	</div>
 </div>
-<div class="wrapper clear">
-	<div class="debatePreviewShadow"></div>
-	<div class="debatePreview">
-		<h3 class="title">Débats en cours</h3>
-		<ul class="debateLst">
-			<li class="debate" ng-repeat="debate in debates">
-				<div class="clear">
-					<img ng-src="{{ 'http://twitter.com/api/users/profile_image/' + debate.user_id + '?size=normal' }}">
-					<a href="{{ '#/debate/' + debate.$id }}">{{ debate.title }}</a>
-					<div class="debatePreviewDesc">{{ debate.description }}</div>
-				</div>
-			</li>
-		</ul>
+<div class="afterCover">
+	<div class="wrapper clear">
+		<div class="welcomeMsg">
+			<h3 class="title">Bienvenue !</h3>
+
+			<p class="debatePreviewDesc">
+				Twagora est une plateforme de débat qui a pour objectif de vous permettre de débattre des sujets qui vous importe en s'intégrant au mieux a Twitter. 
+				Vous voulez réagir a un tweet mais la limite des 140 caractères risque d'être un problème ?<br>Vous êtes au bon endroit !<br>
+				<br>
+				Twagora est le fruit d'un seul week-end de travail, et a encore beaucoup de chemin a parcourir pour remplir sa mission.<br>
+				<br>
+				Si vous avez des suggestions quand aux fonctionnalités que vous voudriez voir sur le site, venez faire un tour sur le débat prévu a cette effet : <a href="http://twagora.parseapp.com/#/debate/-JWGWdxg6R0TYcr68QI_">ici</a><br>
+				<br>
+				Si vous trouvez des bugs ce <a href=""http://twagora.parseapp.com/#/debate/-JWGWl1sTMxYrNsetNhe>débat</a> est celui que vous cherchez ! (pour les problème de sécurité préférez nous envoyer un mail directement a twagora@gmail.com)<br>
+				<br>
+				Et si vous voulez simplement fair part de votre enthousiasme vis a vis de Twagora, passez nous faire coucou <a href="http://twagora.parseapp.com/#/debate/-JWH7TIWRxZDPZCfKHj8">ici !</a><br>
+				<br>
+				L'équipe de Twagora<br>
+			</p>
+		</div>
+		<div class="debatePreviewHandler clear">
+			<div class="debatePreviewShadow"></div>
+			<div class="debatePreview">
+				<h3 class="title">Débats en cours</h3>
+				<ul class="debateLst">
+					<li class="debate" ng-repeat="debate in debates">
+						<div class="clear">
+							<a href="{{ '#/debate/' + debate.$id }}">
+								<img ng-src="{{ 'http://twitter.com/api/users/profile_image/' + debate.user_id + '?size=normal' }}">
+								<div class="debateLstTitle">{{ debate.title }}</div>
+								<div class="debatePreviewDesc">{{ debate.description }}</div>
+							</a>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
 	</div>
 </div>
+<div id="footerTrick"></div>
+
 
 <footer id="footer">
 	<div class="wrapper">

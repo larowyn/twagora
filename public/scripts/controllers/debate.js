@@ -21,6 +21,13 @@ angular.module('twagoraApp')
 			$rootScope.$broadcast('debateLoaded');
 		});
 
+		$scope.$on('debateMsgDisplayed', function () {
+			$timeout(function () {
+				var page = $('#debatePage');
+				$('#debatePage').animate({scrollTop: page.children('.wrapper').height()}, 1000);
+			}, 500);
+		});
+
 		var msgsSync = $firebase(debateRef.child('/messages'));
 		$scope.messages = msgsSync.$asArray();
 
@@ -34,6 +41,7 @@ angular.module('twagoraApp')
 		}
 
 		$scope.messages.$loaded().then(function () {
+			console.log('msg');
 			filterMsg();
 			$scope.messages.$watch(filterMsg);
 		});
@@ -65,6 +73,12 @@ angular.module('twagoraApp')
 			}, function (error) {
 				// failed to remove message
 			});
+
+			/*$scope.messages.$remove(message).then(function () {
+				// message deleted
+			}, function () {
+				// failed to remove message
+			});*/
 		}
 
 		simpleLogin.getCurrentUser().then(function (user) {
@@ -82,7 +96,7 @@ angular.module('twagoraApp')
 		};
 
 		$scope.intentTweetDebat = function () {
-			window.open("https://twitter.com/intent/tweet?via=TwagoraApp&text=" + twitterService.rawURLEncode("Rejoignez le débat !") + "&url=" + encodeURIComponent('http://twagora.parseapp.com/#/debate/') + $scope.debate.$id, "_blank", "width=550px,height=420px,menubar=no,status=no");
+			window.open("https://twitter.com/intent/tweet?via=twagora&text=" + twitterService.rawURLEncode("Rejoignez le débat !") + "&url=" + encodeURIComponent('http://0.0.0.0:9001/#/debate/') + $scope.debate.$id, "_blank", "width=550px,height=420px,menubar=no,status=no");
 		};
 
 	})
