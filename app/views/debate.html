@@ -23,7 +23,10 @@
 					<img ng-src="{{ 'http://twitter.com/api/users/profile_image/' + message.user_id + '?size=normal' }}">
 				</div>
 				<blockquote class="blockquote">
-					<button class="msgAction"></button>
+					<button class="msgActionBtn" ng-click="actionOpened = !actionOpened" ng-show="message.user_id == user.id"></button>
+					<div class="msgAction" ng-show="actionOpened">
+						<span ng-click="deleteMessage(message)" ng-show="message.user_id == user.id">supprimer</span>
+					</div>
 					<p class="msg" ng-bind-html="message.body">
 						{{ message.body }}
 					<p>
@@ -34,7 +37,6 @@
 						</a>
 						le {{ message.date | date:'dd/MM/yyyy' }}
 						à {{ message.date | date:'HH:mm:ss' }}
-						<span ng-click="deleteMessage(message)" ng-show="message.user_id == user.id">supprimer</span>
 					</footer>
 				</blockquote>
 			</div>

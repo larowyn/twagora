@@ -9,6 +9,8 @@ angular.module('twagoraApp')
 
 		$scope.newMessage = '';
 
+		$scope.actionOpened = false;
+
 		$scope.debate.$loaded().then(function (data) {
 			if (!data.title) {
 				$location.path('404');
@@ -79,6 +81,10 @@ angular.module('twagoraApp')
 		$scope.intentTweetDebat = function () {
 			window.open("https://twitter.com/intent/tweet?via=twagora&text=" + twitterService.rawURLEncode("Rejoignez le débat !") + "&url=" + encodeURIComponent('http://0.0.0.0:9001/#/debate/') + $scope.debate.$id, "_blank", "width=550px,height=420px,menubar=no,status=no");
 		};
+/*
+		$scope.toggleAction = function () {
+			$scope.actionOpened = true;
+		};*/
 
 	})
 	.controller('CreateDebateCtrl', function ($rootScope, $scope, $routeParams, $firebase, $location, FBURL, simpleLogin) {
