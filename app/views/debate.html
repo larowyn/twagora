@@ -23,7 +23,10 @@
 					<img ng-src="{{ 'http://twitter.com/api/users/profile_image/' + message.user_id + '?size=normal' }}">
 				</div>
 				<blockquote class="blockquote">
-					<p class="msg" ng-bind-html="message.body">{{ message.body }}<p>
+					<button class="msgAction"></button>
+					<p class="msg" ng-bind-html="message.body">
+						{{ message.body }}
+					<p>
 					<footer class="author">
 						Par {{ message.displayName }} -
 						<a ng-click="intentUser(message.user_id)">
