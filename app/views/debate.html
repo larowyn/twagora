@@ -18,7 +18,7 @@
 				</div>
 				<div class="debateDescToggle"></div>
 			</div>
-			<div class="msgDebateHandler clear" ng-repeat="message in messages">
+			<div class="msgDebateHandler clear" ng-repeat="message in messages | filter:{deleted: '!true'}">
 				<div class="user">
 					<img ng-src="{{ 'http://twitter.com/api/users/profile_image/' + message.user_id + '?size=normal' }}">
 				</div>
@@ -31,7 +31,7 @@
 						</a>
 						le {{ message.date | date:'dd/MM/yyyy' }}
 						à {{ message.date | date:'HH:mm:ss' }}
-						<span ng-click="deleteMessage(message)" ng-show="message.user_id != user.id">supprimer</span>
+						<span ng-click="deleteMessage(message)" ng-show="message.user_id == user.id">supprimer</span>
 					</footer>
 				</blockquote>
 			</div>

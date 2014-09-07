@@ -38,11 +38,16 @@ angular.module('twagoraApp')
 		};
 
 		$scope.deleteMessage = function (message) {
-			//if (message.user_id != $rootScope.auth.user.id) return;
+			if (message.user_id != $rootScope.auth.user.id) return;
 
-			console.log(message);
-			var msgSync = $firebase(debateRef.child('/messages/' + message.$id));
-			msgSync.$remove();
+			console.log($scope.messages);
+			message.deleted = true;
+			$scope.messages.$save(message).then(function (ref) {
+				// message deleted
+			}, function (error) {
+				// failed to remove message
+			});
+
 			/*$scope.messages.$remove(message).then(function () {
 				// message deleted
 			}, function () {
