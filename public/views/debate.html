@@ -3,7 +3,8 @@
 		<div class="debateHandler">
 			<div class="debateDescHandler" ta-dropdown>
 				<div class="debateDesc">
-					<img src="https://dev.twitter.com/sites/default/files/images_documentation/bird_blue_32.png" alt="tweet" ng-click="intentTweetDebat()" style="float:left;margin-right:10px;" /><h2 class="h2Like">{{ debate.title }}</h2>
+					<h2 class="h2Like">{{ debate.title }}</h2>
+					<button class="button sendMsg" ng-click="intentTweetDebat()">Partager !</button>
 					<div class="desc">
 						{{ debate.description }}
 						<div class="author">
