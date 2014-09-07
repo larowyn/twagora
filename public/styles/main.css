@@ -145,6 +145,13 @@ ul {
 	min-height: 0;
 }
 
+.siteName {
+	color: #292f33;
+	font-variant: small-caps;
+	font-weight: bold;
+	font-size: 1.1em;
+}
+
 .sign {
 	width: 200px;
 	text-align: center;
@@ -339,7 +346,6 @@ ul {
 
 #footerTrick {
 	height: 140px;
-	box-shadow: 0 5px 8px rgba(0, 0, 0, 0.5) inset;
 	position: relative;
 	z-index: 3;
 }
@@ -354,6 +360,7 @@ ul {
 	height: 140px;
 	bottom: 0;
 	color: #fff;
+	box-shadow: 0 5px 8px rgba(0, 0, 0, 0.5) inset;
 }
 
 #footer a {
