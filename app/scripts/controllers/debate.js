@@ -24,10 +24,8 @@ angular.module('twagoraApp')
 			if ($scope.newMessage.length == 0) return;
 			$event.preventDefault();
 
-			console.log($scope.newMessage);
 			$scope.newMessage = $scope.newMessage.split('\n');
 			$scope.newMessage = $scope.newMessage.join('<br>');
-			console.log($scope.newMessage);
 			$scope.messages.$add({
 				body: $scope.newMessage,
 				displayName: $scope.user.displayName,
@@ -38,6 +36,19 @@ angular.module('twagoraApp')
 
 			$scope.newMessage = '';
 		};
+
+		$scope.deleteMessage = function (message) {
+			//if (message.user_id != $rootScope.auth.user.id) return;
+
+			console.log(message);
+			var msgSync = $firebase(debateRef.child('/messages/' + message.$id));
+			msgSync.$remove();
+			/*$scope.messages.$remove(message).then(function () {
+				// message deleted
+			}, function () {
+				// failed to remove message
+			});*/
+		}
 
 		var cla = '';
 		$scope.computeClass = function (prev, curr) {
