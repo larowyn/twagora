@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('twagoraApp')
-	.directive('taDebateMsg', function ($timeout) {
+	.directive('taDebateMsg', function ($rootScope) {
 		return ({
 			restrict: 'A',
 			link: function (scope, elem, attrs) {
@@ -15,6 +15,8 @@ angular.module('twagoraApp')
 					if ((prevUserId != currentUserId && !prevIsReverse) || (prevUserId == currentUserId && prevIsReverse))
 						elem.addClass('msgDebateHandlerReverse');
 				}
+				if (scope.$last)
+					$rootScope.$broadcast('debateMsgDisplayed');
 			}
 		});
 

@@ -21,6 +21,13 @@ angular.module('twagoraApp')
 			$rootScope.$broadcast('debateLoaded');
 		});
 
+		$scope.$on('debateMsgDisplayed', function () {
+			$timeout(function () {
+				var page = $('#debatePage');
+				$('#debatePage').animate({scrollTop: page.children('.wrapper').height()}, 1000);
+			}, 500);
+		});
+
 		var msgsSync = $firebase(debateRef.child('/messages'));
 		$scope.messages = msgsSync.$asArray();
 
@@ -34,6 +41,7 @@ angular.module('twagoraApp')
 		}
 
 		$scope.messages.$loaded().then(function () {
+			console.log('msg');
 			filterMsg();
 			$scope.messages.$watch(filterMsg);
 		});
@@ -42,7 +50,6 @@ angular.module('twagoraApp')
 			if ($event && ($event.which != 13 || $event.shiftKey)) return;
 			if ($scope.newMessage.length == 0) return;
 			if ($event) $event.preventDefault();
-			console.log('YOLOOOOOOOO !!!');
 
 			$scope.newMessage = $scope.newMessage.split('\n');
 			$scope.newMessage = $scope.newMessage.join('<br>');

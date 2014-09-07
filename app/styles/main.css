@@ -71,10 +71,18 @@ ul {
 }
 
 .logo {
-	font-size: 10rem;
-	font-weight: bold;
-	line-height: 60px;
 	float: left;
+	font-size: 0;
+}
+
+.logo .img {
+	height: 60px;
+	vertical-align: middle;
+}
+
+.logo .type {
+	height: 30px;
+	vertical-align: middle;
 }
 
 .textBorder {
@@ -123,6 +131,7 @@ ul {
 
 #debatePage {
 	height: calc(100% - 130px);
+	position: relative;
 }
 
 .wrapper {
