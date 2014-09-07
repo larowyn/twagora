@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('twagoraApp')
-	.controller('DebateCtrl', function ($rootScope, $scope, $routeParams, $firebase, $location, FBURL, simpleLogin) {
+	.controller('DebateCtrl', function ($rootScope, $scope, $routeParams, $firebase, $location, FBURL, simpleLogin, twitterService) {
 
 		var debateRef = new Firebase(FBURL + '/debates/' + $routeParams.debateId);
 		var debateSync = $firebase(debateRef);
@@ -56,6 +56,14 @@ angular.module('twagoraApp')
 			});
 		};
 
+		$scope.intentUser = function (user_id) {
+			window.open("https://twitter.com/intent/user?user_id=" + user_id, "_blank", "width=550px,height=420px,menubar=no,status=no");
+		};
+
+		$scope.intentTweetDebat = function () {
+			window.open("https://twitter.com/intent/tweet?via=twagora&text=" + twitterService.rawURLEncode("Rejoignez le débat !") + "&url=" + encodeURIComponent('http://0.0.0.0:9001/#/debate/') + $scope.debate.$id, "_blank", "width=550px,height=420px,menubar=no,status=no");
+		};
+
 	})
 	.controller('CreateDebateCtrl', function ($rootScope, $scope, $routeParams, $firebase, $location, FBURL, simpleLogin) {
 
@@ -81,7 +89,5 @@ angular.module('twagoraApp')
 				$location.path('debate/' + ref.name());
 			});
 		};
-
-
 
 	});
