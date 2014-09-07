@@ -3,7 +3,7 @@
 		<div class="debateHandler">
 			<div class="debateDescHandler" ta-dropdown>
 				<div class="debateDesc">
-					<h2 class="h2Like">{{ debate.title }}</h2>
+					<img src="https://dev.twitter.com/sites/default/files/images_documentation/bird_blue_32.png" alt="tweet" ng-click="intentTweetDebat()" style="float:left;margin-right:10px;" /><h2 class="h2Like">{{ debate.title }}</h2>
 					<div class="desc">
 						{{ debate.description }}
 						<div class="author">
@@ -26,7 +26,7 @@
 					<p class="msg" ng-bind-html="message.body">{{ message.body }}<p>
 					<footer class="author">
 						Par {{ message.displayName }} -
-						<a href="{{ 'https://twitter.com/' + message.username }}" target="_blank">
+						<a ng-click="intentUser(message.user_id)">
 							@{{ message.username }}
 						</a>
 						le {{ message.date | date:'dd/MM/yyyy' }}
