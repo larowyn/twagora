@@ -45,7 +45,7 @@
 </div>
 <div class="newMsgHandler">
 	<div class="wrapper">
-		<div ng-show="auth.user">
+		<div ng-show="!debate.closed && auth.user">
 			<div class="user">
 				<img ng-src="{{ user.thirdPartyUserData.profile_image_url }}">
 			</div>
@@ -54,9 +54,12 @@
 				<textarea class="newMsg" ng-model="newMessage" ng-keypress="sendMessage($event)" autofocus></textarea>
 			</div>
 		</div>
-		<div class="white" ng-hide="auth.user">
+		<div class="white" ng-hide="debate.closed || auth.user">
 			<button class="button connect" ng-click="login()">Connectez vous</button>
 			<span>pour participer au débat</span>
+		</div>
+		<div class="white" ng-show="debate.closed">
+			<span>Débat fermé</span>
 		</div>
 	</div>
 </div>
