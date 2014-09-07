@@ -39,7 +39,7 @@ angular.module('twagoraApp')
 		});
 
 		$scope.sendMessage = function($event) {
-			if ($event && ($event.which != 13 || $event.shiftKey)) return;
+			if ($scope.debate.closed || ($event && ($event.which != 13 || $event.shiftKey))) return;
 			if ($scope.newMessage.length == 0) return;
 			if ($event) $event.preventDefault();
 
