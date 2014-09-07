@@ -60,7 +60,6 @@ angular.module('twagoraApp')
 		$scope.deleteMessage = function (message) {
 			if (message.user_id != $rootScope.auth.user.id) return;
 
-			console.log($scope.messages);
 			message.deleted = true;
 			$scope.messages.$save(message).then(function (ref) {
 				// message deleted
