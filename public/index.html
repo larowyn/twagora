@@ -1,0 +1,55 @@
+<!doctype html>
+<html ng-app="twagoraApp" lang="FR-fr">
+<head>
+	<meta charset="utf-8">
+	<title>TwAgora</title>
+	<meta name="description" content="TwAgora, une plateforme sur laquelle débattre et échanger quand la limitation à 140 caractères de Twitter devient un problème.">
+	<meta name="viewport" content="width=device-width">
+	<link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+
+	<header id="header" ng-controller="HeaderCtrl">
+		<div class="wrapper clear">
+			<div class="logo">
+				<a href="#">
+					<span class="blue">Tw</span><span class="textBorder">Agora
+				</a>
+			</div>
+			<nav id="menu">
+				<button class="button connect" ng-click="auth.user && logout() || login()">
+					{{ auth.user && 'Déconnexion' || 'Connexion' }}
+					<img ng-src="{{ auth.user.thirdPartyUserData.profile_image_url }}" ng-show="auth.user">
+				</button>
+			</nav>
+		</div>
+	</header>
+
+	<section class="bodyContent" ng-view>
+	</section>
+
+	<script src="bower_components/jquery/dist/jquery.js"></script>
+	<script src="bower_components/angular/angular.js"></script>
+	<script src="bower_components/angular-resource/angular-resource.js"></script>
+	<script src="bower_components/angular-route/angular-route.js"></script>
+	<script src="bower_components/firebase/firebase.js"></script>
+	<script src="bower_components/firebase-simple-login/firebase-simple-login.js"></script>
+	<script src="bower_components/angularfire/dist/angularfire.js"></script>
+	<script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+	<script src="scripts/parse-1.2.19.min.js"></script>
+	<script src="scripts/app.js"></script>
+	<script src="scripts/controllers/main.js"></script>
+	<script src="scripts/controllers/about.js"></script>
+	<script src="scripts/angularfire/config.js"></script>
+	<script src="scripts/services/firebase.js"></script>
+	<script src="scripts/services/login.js"></script>
+	<script src="scripts/services/twitterSrv.js"></script>
+	<script src="scripts/angularfire/simpleLoginTools.js"></script>
+	<script src="scripts/angularfire/routesecurity.js"></script>
+	<script src="scripts/controllers/login.js"></script>
+	<script src="scripts/controllers/debate.js"></script>
+	<script src="scripts/controllers/header.js"></script>
+	<script src="scripts/directives/dropDownDrv.js"></script>
+	<script src="scripts/directives/debateMsgDrv.js"></script>
+</body>
+</html>

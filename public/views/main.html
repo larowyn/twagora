@@ -1,0 +1,33 @@
+<div class="section" id="indexPage">
+	<div class="wrapper">
+		<div class="cover">
+			<h1 class="slogan">Débattez. Unleash the hounds !</h1>
+			<a href="#" class="button grey sign" ng-click="login('twitter')" ng-hide="auth.user">Je m'inscris</a>
+			<a href="#/create/debate" class="button grey sign" ng-show="auth.user">Commencer un débat</a>
+		</div>
+		<ul class="onlineList">
+			<li class="people"></li>
+		</ul>
+	</div>
+</div>
+<div class="wrapper clear">
+	<div class="debatePreviewShadow"></div>
+	<div class="debatePreview">
+		<h3 class="title">Débats en cours</h3>
+		<ul class="debateLst">
+			<li class="debate" ng-repeat="debate in debates">
+				<div class="clear">
+					<img ng-src="{{ 'http://twitter.com/api/users/profile_image/' + debate.user_id + '?size=normal' }}">
+					<a href="{{ '#/debate/' + debate.$id }}">{{ debate.title }}</a>
+					<div class="debatePreviewDesc">{{ debate.description }}</div>
+				</div>
+			</li>
+		</ul>
+	</div>
+</div>
+
+<footer id="footer">
+	<div class="wrapper">
+		<a href="http://twagora.tumblr.com/" target="_blank">Blog</a>
+	</div>
+</footer>

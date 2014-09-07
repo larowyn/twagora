@@ -1,0 +1,14 @@
+{
+    "applications": {
+        "Twagora": {
+            "applicationId": "f3oWvcBhqy4cvIKnyakMzxtWGuJbdhkalyF9qhej", 
+            "masterKey": "VoFdDzw0HGW5xRHwFLQjkD2CKi58WRHP0fnvdCfz"
+        }, 
+        "_default": {
+            "link": "Twagora"
+        }
+    }, 
+    "global": {
+        "parseVersion": "1.2.19"
+    }
+}

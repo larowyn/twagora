@@ -1,0 +1,65 @@
+<div class="section" id="debatePage">
+	<div class="wrapper">
+		<div class="debateHandler">
+			<div class="debateDescHandler" ta-dropdown>
+				<div class="debateDesc">
+					<img src="https://dev.twitter.com/sites/default/files/images_documentation/bird_blue_32.png" alt="tweet" ng-click="intentTweetDebat()" style="float:left;margin-right:10px;" /><h2 class="h2Like">{{ debate.title }}</h2>
+					<div class="desc">
+						{{ debate.description }}
+						<div class="author">
+							Débat ouvert par {{ debate.displayName }} - 
+							<a href="{{ 'https://twitter.com/account/redirect_by_id/' + debate.user_id }}" target="_blank">
+								@{{ debate.username }}
+							</a>
+							le {{ debate.date | date:'dd/MM/yyyy' }}
+							à {{ debate.date | date:'HH:mm' }}
+						</div>
+					</div>
+				</div>
+				<div class="debateDescToggle"></div>
+			</div>
+			<div class="msgDebateHandler clear" ng-repeat="message in messagesFiltered" ta-debate-msg="{{ $index }}">
+				<div class="user">
+					<img ng-src="{{ 'http://twitter.com/api/users/profile_image/' + message.user_id + '?size=normal' }}">
+				</div>
+				<blockquote class="blockquote">
+					<button class="msgActionBtn" ng-click="actionOpened = !actionOpened" ng-show="message.user_id == user.id"></button>
+					<div class="msgAction" ng-show="actionOpened">
+						<span ng-click="deleteMessage(message)" ng-show="message.user_id == user.id">supprimer</span>
+					</div>
+					<p class="msg" ng-bind-html="message.body">
+						{{ message.body }}
+					<p>
+					<footer class="author">
+						Par {{ message.displayName }} -
+						<a ng-click="intentUser(message.user_id)">
+							@{{ message.username }}
+						</a>
+						le {{ message.date | date:'dd/MM/yyyy' }}
+						à {{ message.date | date:'HH:mm:ss' }}
+					</footer>
+				</blockquote>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="newMsgHandler">
+	<div class="wrapper">
+		<div ng-show="!debate.closed && auth.user">
+			<div class="user">
+				<img ng-src="{{ user.thirdPartyUserData.profile_image_url }}">
+			</div>
+			<button class="button sendMsg" ng-click="sendMessage()">Répondre</button>
+			<div class="newMsgInputHandler" ng-model="newMessage" autofocus>
+				<textarea class="newMsg" ng-model="newMessage" ng-keypress="sendMessage($event)" autofocus></textarea>
+			</div>
+		</div>
+		<div class="white" ng-hide="debate.closed || auth.user">
+			<button class="button connect" ng-click="login()">Connectez vous</button>
+			<span>pour participer au débat</span>
+		</div>
+		<div class="white" ng-show="debate.closed">
+			<span>Débat fermé</span>
+		</div>
+	</div>
+</div>
