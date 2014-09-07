@@ -24,7 +24,7 @@ angular.module('twagoraApp')
 		$scope.sendMessage = function($event) {
 			if ($event && ($event.which != 13 || $event.shiftKey)) return;
 			if ($scope.newMessage.length == 0) return;
-			$event.preventDefault();
+			if ($event) $event.preventDefault();
 
 			$scope.newMessage = $scope.newMessage.split('\n');
 			$scope.newMessage = $scope.newMessage.join('<br>');
