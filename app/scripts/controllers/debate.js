@@ -58,8 +58,11 @@ angular.module('twagoraApp')
 		}
 
 		var cla = '';
-		$scope.computeClass = function (prev, curr) {
-			if (prev && prev.user_id != curr.user_id)
+		$scope.computeClass = function (index) {
+			var prev = index - 1;
+			console.log(cla);
+			while (prev >= 0 && $scope.messages[prev].deleted) { console.log("prev skip"); prev-- };
+			if (prev >= 0 && $scope.messages[prev].user_id != $scope.messages[index].user_id)
 				cla = (cla == 'msgDebateHandlerReverse') ? '' : 'msgDebateHandlerReverse';
 			return (cla);
 		}

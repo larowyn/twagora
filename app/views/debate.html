@@ -18,7 +18,7 @@
 				</div>
 				<div class="debateDescToggle"></div>
 			</div>
-			<div class="msgDebateHandler clear" ng-repeat="message in messages | filter:{deleted: '!true'}" ng-class="computeClass(messages[$index - 1], message)">
+			<div class="msgDebateHandler clear" ng-repeat="message in messages | filter:{deleted: '!true'}" ng-class="computeClass($index)">
 				<div class="user">
 					<img ng-src="{{ 'http://twitter.com/api/users/profile_image/' + message.user_id + '?size=normal' }}">
 				</div>
