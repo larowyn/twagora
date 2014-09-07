@@ -364,6 +364,7 @@ ul {
 	width: 50px;
 	float: left;
 	font-size: 0;
+	z-index: 2;
 }
 
 .msgDebateHandlerReverse .user {
@@ -589,11 +590,21 @@ ul {
 	z-index: 2;
 	top: 21px;
 	right: 7px;
-	padding: 10px;
+	padding: 10px 5px;
 	color: #292f33;
 	border: 1px solid #8899a6;
 	box-shadow: 0 3px 8px rgba(0, 0, 0, 0.5);
 	border-radius: 3px;
+}
+
+.msgAction > * {
+	padding: 5px 10px;
+	cursor: pointer;
+	border-radius: 3px;
+}
+
+.msgAction > *:hover {
+	background: #e1e8ed;
 }
 
 

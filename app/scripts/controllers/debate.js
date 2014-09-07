@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('twagoraApp')
-	.controller('DebateCtrl', function ($rootScope, $scope, $routeParams, $firebase, $location, FBURL, simpleLogin, twitterService) {
+	.controller('DebateCtrl', function ($rootScope, $scope, $routeParams, $firebase, $location, FBURL, simpleLogin, twitterService, $timeout) {
 
 		var debateRef = new Firebase(FBURL + '/debates/' + $routeParams.debateId);
 		var debateSync = $firebase(debateRef);
@@ -10,6 +10,9 @@ angular.module('twagoraApp')
 		$scope.newMessage = '';
 
 		$scope.actionOpened = false;
+
+		$scope.messages = [];
+		$scope.messagesFiltered = [];
 
 		$scope.debate.$loaded().then(function (data) {
 			if (!data.title) {
@@ -21,10 +24,25 @@ angular.module('twagoraApp')
 		var msgsSync = $firebase(debateRef.child('/messages'));
 		$scope.messages = msgsSync.$asArray();
 
+		function filterMsg() {
+			var msgLst = $scope.messages;
+			$scope.messagesFiltered = [];
+			for (var i = 0; i < msgLst.length; i++) {
+				if (msgLst[i].deleted == undefined)
+					$scope.messagesFiltered.push(msgLst[i]);
+			}
+		}
+
+		$scope.messages.$loaded().then(function () {
+			filterMsg();
+			$scope.messages.$watch(filterMsg);
+		});
+
 		$scope.sendMessage = function($event) {
 			if ($event && ($event.which != 13 || $event.shiftKey)) return;
 			if ($scope.newMessage.length == 0) return;
 			if ($event) $event.preventDefault();
+			console.log('YOLOOOOOOOO !!!');
 
 			$scope.newMessage = $scope.newMessage.split('\n');
 			$scope.newMessage = $scope.newMessage.join('<br>');
@@ -57,16 +75,6 @@ angular.module('twagoraApp')
 			});*/
 		}
 
-		var cla = '';
-		$scope.computeClass = function (index) {
-			var prev = index - 1;
-			console.log(cla);
-			while (prev >= 0 && $scope.messages[prev].deleted) { console.log("prev skip"); prev-- };
-			if (prev >= 0 && $scope.messages[prev].user_id != $scope.messages[index].user_id)
-				cla = (cla == 'msgDebateHandlerReverse') ? '' : 'msgDebateHandlerReverse';
-			return (cla);
-		}
-
 		simpleLogin.getCurrentUser().then(function (user) {
 			$scope.user = user;
 		});
@@ -84,10 +92,6 @@ angular.module('twagoraApp')
 		$scope.intentTweetDebat = function () {
 			window.open("https://twitter.com/intent/tweet?via=twagora&text=" + twitterService.rawURLEncode("Rejoignez le débat !") + "&url=" + encodeURIComponent('http://0.0.0.0:9001/#/debate/') + $scope.debate.$id, "_blank", "width=550px,height=420px,menubar=no,status=no");
 		};
-/*
-		$scope.toggleAction = function () {
-			$scope.actionOpened = true;
-		};*/
 
 	})
 	.controller('CreateDebateCtrl', function ($rootScope, $scope, $routeParams, $firebase, $location, FBURL, simpleLogin) {
