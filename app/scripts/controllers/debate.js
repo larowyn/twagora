@@ -24,10 +24,8 @@ angular.module('twagoraApp')
 			if ($scope.newMessage.length == 0) return;
 			$event.preventDefault();
 
-			console.log($scope.newMessage);
 			$scope.newMessage = $scope.newMessage.split('\n');
 			$scope.newMessage = $scope.newMessage.join('<br>');
-			console.log($scope.newMessage);
 			$scope.messages.$add({
 				body: $scope.newMessage,
 				displayName: $scope.user.displayName,
@@ -38,6 +36,24 @@ angular.module('twagoraApp')
 
 			$scope.newMessage = '';
 		};
+
+		$scope.deleteMessage = function (message) {
+			if (message.user_id != $rootScope.auth.user.id) return;
+
+			console.log($scope.messages);
+			message.deleted = true;
+			$scope.messages.$save(message).then(function (ref) {
+				// message deleted
+			}, function (error) {
+				// failed to remove message
+			});
+
+			/*$scope.messages.$remove(message).then(function () {
+				// message deleted
+			}, function () {
+				// failed to remove message
+			});*/
+		}
 
 		var cla = '';
 		$scope.computeClass = function (prev, curr) {
