@@ -1,4 +1,4 @@
-<div class="section">
+<div class="section" id="indexPage">
 	<div class="wrapper">
 		<div class="cover">
 			<h1 class="slogan">Débattez. Unleash the hounds !</h1>
@@ -8,19 +8,22 @@
 		<ul class="onlineList">
 			<li class="people"></li>
 		</ul>
-		<div class="debatPreview">
-			<h3 class="title">
-				<ul>
-					<li class="debat">
-						<h4></h4>
-					</li>
-				</ul>
-			</h3>
-		</div>
 	</div>
 </div>
-<div ng-repeat="debate in debates">
-	<a href="{{ '#/debate/' + debate.$id }}">{{ debate.title }}</a>
+<div class="wrapper clear">
+	<div class="debatePreviewShadow"></div>
+	<div class="debatePreview">
+		<h3 class="title">Débats en cours</h3>
+		<ul class="debateLst">
+			<li class="debate" ng-repeat="debate in debates">
+				<div class="clear">
+					<img ng-src="{{ 'http://twitter.com/api/users/profile_image/' + debate.user_id + '?size=normal' }}">
+					<a href="{{ '#/debate/' + debate.$id }}">{{ debate.title }}</a>
+					<div class="debatePreviewDesc">{{ debate.description }}</div>
+				</div>
+			</li>
+		</ul>
+	</div>
 </div>
 
 <footer id="footer">
