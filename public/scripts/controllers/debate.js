@@ -82,7 +82,7 @@ angular.module('twagoraApp')
 		};
 
 		$scope.intentTweetDebat = function () {
-			window.open("https://twitter.com/intent/tweet?via=twagora&text=" + twitterService.rawURLEncode("Rejoignez le débat !") + "&url=" + encodeURIComponent('http://twagora.parseapp.com/#/debate/') + $scope.debate.$id, "_blank", "width=550px,height=420px,menubar=no,status=no");
+			window.open("https://twitter.com/intent/tweet?via=TwagoraApp&text=" + twitterService.rawURLEncode("Rejoignez le débat !") + "&url=" + encodeURIComponent('http://twagora.parseapp.com/#/debate/') + $scope.debate.$id, "_blank", "width=550px,height=420px,menubar=no,status=no");
 		};
 
 	})
