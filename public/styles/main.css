@@ -188,6 +188,13 @@ ul {
 	position: relative;
 }
 
+.section .wrapper {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	margin-left: -400px;
+}
+
 .clear:after {
 	content: "";
 	display: block;
@@ -205,6 +212,7 @@ ul {
 	margin-left: -5%;
 	box-shadow: 0 3px 8px rgba(0, 0, 0, 0.5);
 	padding-left: 2%;
+	position: relative;
 }
 
 #indexPage {
