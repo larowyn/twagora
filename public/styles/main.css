@@ -16,6 +16,7 @@ body {
 	font-size: 6em;
 	min-height: 100%;
 	position: relative;
+	overflow-x: hidden;
 }
 
 button {
@@ -158,7 +159,7 @@ ul {
 }
 
 .welcomeMsg {
-	margin: 10px 0;
+	margin: 20px 0;
 	width: 380px;
 	text-align: justify;
 	float: left;
