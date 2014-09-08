@@ -188,13 +188,6 @@ ul {
 	position: relative;
 }
 
-.section .wrapper {
-	position: absolute;
-	top: 0;
-	left: 50%;
-	margin-left: -400px;
-}
-
 .clear:after {
 	content: "";
 	display: block;
@@ -209,9 +202,8 @@ ul {
 	line-height: 300px;
 	overflow-y: scroll;
 	width: 110%;
-	margin-left: -5%;
+	left: -5%;
 	box-shadow: 0 3px 8px rgba(0, 0, 0, 0.5);
-	padding-left: 2%;
 	position: relative;
 }
 
